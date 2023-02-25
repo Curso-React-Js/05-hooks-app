@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Message } from './Message';
 
 export const SimpleForm = () => {
 
@@ -21,19 +22,29 @@ export const SimpleForm = () => {
 
   // en useEffect poner => [], significa que solo se llame una vez
   useEffect(() => {
-    console.log('useEffect called!');
+    // console.log('useEffect called!');
   }, []);
 
   // Crear useEffect para cada cambio individual como los valores del input
   useEffect(() => {
-    console.log('formState changed!');
+    // console.log('formState changed!');
   }, [ formState ]);
 
   // Esta atento de los cambios del email
   useEffect(() => {
-    console.log('email changed');
+    // console.log('email changed');
   }, [ email ]);
 
+  // useEffect(() => {
+  //   // crear un listener
+  //   first
+  
+  //   // Limpiar listener
+  //   return () => {
+  //     second
+  //   }
+  // }, [third])
+  
   return (
     <>
       <h1>Formulario Simple</h1>
@@ -55,6 +66,10 @@ export const SimpleForm = () => {
         name="email"
         value={ email }
         onChange={ onInputChange } />
+
+        {
+          (username === 'strider2') && <Message />
+        }
     </>
   );
 }
