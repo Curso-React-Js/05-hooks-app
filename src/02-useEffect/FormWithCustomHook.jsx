@@ -3,7 +3,16 @@ import { useForm } from '../hooks/useForm';
 
 export const FormWithCustomHook = () => {
 
-  const { formState, onInputChange, username, email, password } = useForm({
+  // https://react-hook-form.com/get-started => manejo de formularios avanzado
+
+  const {
+    formState,
+    onInputChange,
+    username,
+    email,
+    password,
+    onResetForm, // estandar de eventos con onNombreFunciont()
+  } = useForm({
     username: '',
     email: '',
     password: '',
@@ -40,6 +49,10 @@ export const FormWithCustomHook = () => {
         name="password"
         value={ password }
         onChange={ onInputChange } />
+      
+      <button 
+        className='btn btn-primary mt-2'
+        onClick={ onResetForm }>Borrar</button>
 
     </>
   );
