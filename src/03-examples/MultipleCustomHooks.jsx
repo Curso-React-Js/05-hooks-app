@@ -1,5 +1,5 @@
-import { useCounter } from '../hooks/useCounter';
-import { useFetch } from '../hooks/useFetch';
+import { LoadingQuote, Quote } from './';
+import { useCounter, useFetch } from '../hooks';
 
 // url alternativa =>  https://breakingbadquotes.xyz/
 export const MultipleCustomHooks = () => {
@@ -31,7 +31,7 @@ export const MultipleCustomHooks = () => {
       <h1>Breaking Bad Quotes</h1>
       <hr />
 
-      {
+      {/* {
         (isLoading) 
             ? 
             (
@@ -46,6 +46,12 @@ export const MultipleCustomHooks = () => {
                 <footer className="blockquote-footer">{ author }</footer>
               </blockquote>
             )
+      } */}
+
+      {
+        (isLoading) 
+            ? <LoadingQuote />
+            : <Quote quote={ quote } author={ author } /> 
       }
 
       <button 
