@@ -1,9 +1,11 @@
+import { useCounter } from '../hooks/useCounter';
 import { useFetch } from '../hooks/useFetch';
 
 // url alternativa =>  https://breakingbadquotes.xyz/
 export const MultipleCustomHooks = () => {
 
-  const url = `https://api.breakingbadquotes.xyz/v1/quotes/1`;
+  const { counter, increment } = useCounter(1);
+  const url = `https://api.breakingbadquotes.xyz/v1/quotes/${ counter }`;
   const { data, isLoading, hasError } = useFetch(url);
 
   // si la data tiene valor entonces toma el primer elemento del arreglo
@@ -46,7 +48,10 @@ export const MultipleCustomHooks = () => {
             )
       }
 
-      <button className="btn btn-primary">
+      <button 
+        className="btn btn-primary"
+        disabled={ isLoading }
+        onClick={ () => increment(1) }>
         Next quote
       </button>
 
