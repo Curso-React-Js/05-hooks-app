@@ -5,3 +5,8 @@ body {
 button {
   margin-right: 10px;
 }
+
+/* Usa el a como si fuera el Link */
+a {
+  margin-right: 5px;
+}
