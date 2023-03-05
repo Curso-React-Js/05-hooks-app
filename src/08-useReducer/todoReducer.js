@@ -7,11 +7,13 @@ export const todoReducer = ( initialState = [], action ) => {
       // throw new Error('Action.type = ABC no esta implementadas');
       return [ action.payload, ...initialState ];
     case '[TODO] Remove Todo':
-      return initialState.filter( todo => todo.id !== action.payload );
+      const todoIdToDelete = action.payload; // id: 1
+      return initialState.filter( todo => todo.id !== todoIdToDelete );
     case '[TODO] Toggle Todo':
+      const todoIdToChangeToggle = action.payload; // id: 1
       return initialState.map( todo => {
 
-        if (todo.id === action.payload) {
+        if (todo.id === todoIdToChangeToggle) {
           return {
             ...todo,
             done: !todo.done
