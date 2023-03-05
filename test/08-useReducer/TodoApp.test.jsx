@@ -29,7 +29,7 @@ describe('Pruebas en <TodoApp />', () => {
 
     // console.log(screen.getByRole('textbox').innerHTML);
     // console.log(screen.getByRole('textbox').name); // description
-    console.log(screen.getByRole('textbox').className); // form-control
+    // console.log(screen.getByRole('textbox').className); // form-control
 
   });
   
